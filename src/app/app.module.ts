@@ -6,19 +6,24 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
 import { ProductListComponent } from './product-list/product-list.component';
+import { HttpClientModule } from '@angular/common/http';
+import { RegisterDistanceComponent } from './register-distance/register-distance.component';
 
 @NgModule({
   imports: [
     BrowserModule,
+    HttpClientModule,
     ReactiveFormsModule,
     RouterModule.forRoot([
-      { path: '', component: ProductListComponent },
+      { path: '', component: RegisterDistanceComponent },
+      { path: 'list', component: ProductListComponent },
     ])
   ],
   declarations: [
     AppComponent,
     TopBarComponent,
-    ProductListComponent
+    ProductListComponent,
+    RegisterDistanceComponent
   ],
   bootstrap: [
     AppComponent
