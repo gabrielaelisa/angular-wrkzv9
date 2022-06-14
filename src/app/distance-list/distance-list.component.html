@@ -1,19 +1,25 @@
 <h2>Distancias</h2>
 
 <div *ngFor="let distance of distances">
+  <div>
+    <h2>
+        {{ distance.origin }}
+    </h2>
 
-  <h3>
-      {{ distance.origin }}
-  </h3>
+    <h2>
+      {{ distance.destination }}
+    </h2>
+    <h2>
+      {{ distance.distance }}
+    </h2>
 
-  <p *ngIf="distance.destination">
-    Description: {{ distance.destination }}
-  </p>
+  </div>
 
-  <button type="button" (click)="share()">
-    Share
-  </button>
 </div>
+<button type="button" (click)="share()">
+    Siguiente Página
+</button>
+
 
 <!-- 
 Copyright Google LLC. All Rights Reserved.

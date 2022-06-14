@@ -1,31 +1,40 @@
 import { Component } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
-
-//import { RegisterDistanceService } from '../registerdistance.service';
+import { RegisterDistanceService, Distance } from '../register-distance.service';
 
 @Component({
   selector: 'app-register-distance',
   templateUrl: './register-distance.component.html',
   styleUrls: ['./register-distance.component.css']
 })
+
 export class RegisterDistanceComponent {
 
-  //items = this.registerDistanceService.getItems();
-
   checkoutForm = this.formBuilder.group({
-    name: '',
-    address: ''
+    origin: '',
+    destination: ''
   });
 
+  distance: number|string= '';
+
   constructor(
-    //private registerDistanceService: registerDistanceService,
+    private registerDistanceService: RegisterDistanceService,
     private formBuilder: FormBuilder,
   ) {}
 
   onSubmit(): void {
-    // Process checkout data here
-    //this.items = this.registerDistanceService.clearregisterdistance();
     console.warn('Your order has been submitted', this.checkoutForm.value);
+    const newDistance= {
+      origin : this.checkoutForm.value.origin,
+      destination: this.checkoutForm.value.destination,
+    } as Distance;
+
+    this.registerDistanceService.postDistances(newDistance).subscribe(
+      data => {
+        this.distance = data.distance
+      });
+
     this.checkoutForm.reset();
+    
   }
 }

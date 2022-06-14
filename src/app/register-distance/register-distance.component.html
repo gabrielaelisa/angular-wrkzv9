@@ -1,19 +1,23 @@
 <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
 
     <div>
-      <label for="name">
-        Name
+      <label for="origin">
+        Origen
       </label>
-      <input id="name" type="text" formControlName="name">
+      <input id="origin" type="text" formControlName="origin" maxlength="100">
     </div>
   
     <div>
-      <label for="address">
-        Address
+      <label for="destination">
+        Destino
       </label>
-      <input id="address" type="text" formControlName="address">
+      <input id="destination" type="text" formControlName="destination"  maxlength="100">
     </div>
   
     <button class="button" type="submit">Purchase</button>
   
 </form>
+
+<div>
+  
+</div>

@@ -12,7 +12,6 @@ export class DistanceListComponent implements OnInit {
 
 
   constructor (private distanceListService: DistanceListService ) { 
-    
   }
 
   ngOnInit(): void {
