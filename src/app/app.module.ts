@@ -5,7 +5,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { TopBarComponent } from './top-bar/top-bar.component';
-import { ProductListComponent } from './product-list/product-list.component';
+import { DistanceListComponent } from './distance-list/distance-list.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RegisterDistanceComponent } from './register-distance/register-distance.component';
 
@@ -16,13 +16,13 @@ import { RegisterDistanceComponent } from './register-distance/register-distance
     ReactiveFormsModule,
     RouterModule.forRoot([
       { path: '', component: RegisterDistanceComponent },
-      { path: 'list', component: ProductListComponent },
+      { path: 'list', component: DistanceListComponent },
     ])
   ],
   declarations: [
     AppComponent,
     TopBarComponent,
-    ProductListComponent,
+    DistanceListComponent,
     RegisterDistanceComponent
   ],
   bootstrap: [

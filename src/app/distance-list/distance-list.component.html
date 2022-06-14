@@ -1,13 +1,13 @@
 <h2>Distancias</h2>
 
-<div *ngFor="let product of products">
+<div *ngFor="let distance of distances">
 
   <h3>
-      {{ product.name }}
+      {{ distance.origin }}
   </h3>
 
-  <p *ngIf="product.description">
-    Description: {{ product.description }}
+  <p *ngIf="distance.destination">
+    Description: {{ distance.destination }}
   </p>
 
   <button type="button" (click)="share()">

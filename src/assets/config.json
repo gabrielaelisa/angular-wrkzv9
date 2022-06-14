@@ -1,0 +1,4 @@
+{
+    "apiDevUrl": "http://localhost:3000/",
+    "apiUrl": "https://dashboard.heroku.com/apps/challengegabi/activity"
+}
