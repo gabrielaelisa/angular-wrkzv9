@@ -1,24 +1,23 @@
 <h2>Distancias</h2>
 
-<div *ngFor="let distance of distances">
-  <div>
-    <h2>
-        {{ distance.origin }}
-    </h2>
+<table>
+  <th>origen</th>
+  <th>destino</th>
+  <th>distancia</th>
+  <tr *ngFor="let distance of distances">
+    <td>{{ distance.origin }}</td>
+    <td>{{ distance.destination }}</td>
+    <td>{{ distance.distance }}</td>
+  </tr>
+</table>
 
-    <h2>
-      {{ distance.destination }}
-    </h2>
-    <h2>
-      {{ distance.distance }}
-    </h2>
-
-  </div>
-
-</div>
-<button type="button" (click)="share()">
+<button type="button" (click)="getPreviousPage()">
+  Anterior
+</button>
+<button type="button" (click)="getNextPage()">
     Siguiente Página
 </button>
+
 
 
 <!-- 

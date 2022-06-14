@@ -1,7 +1,10 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders} from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, of, throwError } from 'rxjs';
-import { catchError, retry } from 'rxjs/operators';
+import { Observable} from 'rxjs';
+import { catchError, map, tap } from 'rxjs/operators';
+
+const url = 'http://challengegabi.herokuapp.com';
+const devUrl = 'http://localhost:3000';
 
 export interface Distance {
   origin: string,
@@ -30,15 +33,15 @@ export class DistanceListService {
         headers: new HttpHeaders({ 'Content-Type': 'application/json' })
       };
 
-      getDistances(): Observable<DistanceResponse> {
+      getDistances(pageNumber: number): Observable<DistanceResponse> {
         return this.http.get<DistanceResponse>(
-          'http://localhost:3000/historic?pageNumber=1',
-          {responseType: 'json'});
+          `${url}/historic?pageNumber=${pageNumber}`,
+          {responseType: 'json'})
       }
 
       getHeartbeat(): Observable<Heartbeat>{
         return this.http.get<Heartbeat>(
-          'http://localhost:3000/heartbeat',
+          `${url}/heartbeat `,
           {responseType: 'json'}
         )
       }

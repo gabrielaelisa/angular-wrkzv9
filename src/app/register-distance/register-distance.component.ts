@@ -29,12 +29,16 @@ export class RegisterDistanceComponent {
       destination: this.checkoutForm.value.destination,
     } as Distance;
 
+  
     this.registerDistanceService.postDistances(newDistance).subscribe(
-      data => {
-        this.distance = data.distance
-      });
-
+        data => {
+          window.alert(`Distancia entre ambas direcciones: ${ data.message.distance}`);
+    });
+    
+  
     this.checkoutForm.reset();
     
+    
   }
+
 }

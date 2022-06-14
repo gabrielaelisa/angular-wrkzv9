@@ -9,6 +9,8 @@ import { DistanceListService, Distance } from '../distance-list.service';
 export class DistanceListComponent implements OnInit {
 
   distances: Distance[] = [];
+  theHeartBeat: string = '';
+  currentPageNumber: number = 1;
 
 
   constructor (private distanceListService: DistanceListService ) { 
@@ -20,18 +22,30 @@ export class DistanceListComponent implements OnInit {
     
   }
 
-  share() {
-    window.alert('The distance has been shared!');
+  getNextPage() {
+    this.currentPageNumber +=1;
+    this.showConfig();
+   
+  }
+
+  getPreviousPage() {
+    this.currentPageNumber -=1;
+    if(this.currentPageNumber==0){
+      this.currentPageNumber= 1;
+    }
+    this.showConfig();
+   
   }
 
   showConfig(): void {
-    this.distanceListService.getDistances()
-    .subscribe(distances => this.distances = distances.message);
+    this.distanceListService.getDistances( this.currentPageNumber )
+      .subscribe(distances => this.distances = distances.message);
   }
 
+  
   heartBeat(): void {
     this.distanceListService.getHeartbeat()
-    .subscribe(heartbeat=> console.log(heartbeat));
+    .subscribe(heartBeat=> this.theHeartBeat =heartBeat.message);
   }
 }
 
