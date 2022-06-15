@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable} from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
 
-const url = 'http://challengegabi.herokuapp.com';
+const url = 'https://challengegabi.herokuapp.com';
 const devUrl = 'http://localhost:3000';
 
 export interface Distance {

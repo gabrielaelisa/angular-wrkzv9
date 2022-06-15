@@ -12,7 +12,7 @@ export interface Distance {
 export interface DistanceResponse {
   message: Distance
 }
-const url = 'http://challengegabi.herokuapp.com';
+const url = 'https://challengegabi.herokuapp.com';
 const devUrl = 'http://localhost:3000';
 
 @Injectable({
@@ -29,9 +29,6 @@ export class RegisterDistanceService {
           `${url}/distance`,
           body,
           {responseType: 'json'}
-        ).pipe(catchError((error => { 
-          throw(error);
-        }))
         );
       }
 }

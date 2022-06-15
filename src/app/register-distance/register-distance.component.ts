@@ -23,7 +23,13 @@ export class RegisterDistanceComponent {
   ) {}
 
   onSubmit(): void {
-    console.warn('Your order has been submitted', this.checkoutForm.value);
+  
+    const { origin, destination} = this.checkoutForm.value;
+
+    if(!(origin && destination)){
+      window.alert('Debe ingresar ambos valores');
+      return; 
+    }
     const newDistance= {
       origin : this.checkoutForm.value.origin,
       destination: this.checkoutForm.value.destination,
@@ -31,9 +37,15 @@ export class RegisterDistanceComponent {
 
   
     this.registerDistanceService.postDistances(newDistance).subscribe(
-        data => {
+      {
+        next(data) { 
           window.alert(`Distancia entre ambas direcciones: ${ data.message.distance}`);
-    });
+        },
+        error(err) { 
+          window.alert('No se puede calcular la distancia'); 
+        },
+      }
+    );
     
   
     this.checkoutForm.reset();
